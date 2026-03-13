@@ -1,20 +1,20 @@
-# Example MCP Server
+# Slack MCP Server
 
-MCP server providing Example API functionality via FastMCP.
+MCP server providing Slack API functionality via FastMCP.
 
 ## Architecture
 
 ```
-src/mcp_example/
+src/mcp_slack/
 ├── server.py      # MCP tools (FastMCP) + entrypoints
-├── api_client.py  # Async HTTP client for Example API
+├── api_client.py  # Async HTTP client for Slack API
 └── api_models.py  # Pydantic models for API responses
 ```
 
 ## Critical
 
-- Package name: `@nimblebraininc/example` (npm-style scope, matches GitHub org)
-- Manifest uses module execution: `python -m mcp_example.server`
+- Package name: `@joecardoso13/slack` (npm-style scope, matches GitHub user)
+- Manifest uses module execution: `python -m mcp_slack.server`
 - Server needs both entrypoints:
   ```python
   app = mcp.http_app()  # HTTP deployment
@@ -37,7 +37,7 @@ API key configured via manifest `user_config`, not hardcoded:
   },
   "server": {
     "mcp_config": {
-      "env": { "EXAMPLE_API_KEY": "${user_config.api_key}" }
+      "env": { "SLACK_API_KEY": "${user_config.api_key}" }
     }
   }
 }
@@ -70,7 +70,7 @@ Version lives in four files that MUST stay in sync:
 | `manifest.json` | `version` |
 | `server.json` | `version` |
 | `pyproject.toml` | `version` |
-| `src/mcp_example/__init__.py` | `__version__` |
+| `src/mcp_slack/__init__.py` | `__version__` |
 
 Bump all at once: `make bump VERSION=0.2.0`
 

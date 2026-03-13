@@ -1,49 +1,52 @@
-# Example MCP Server
+# Slack MCP Server
 
-An MCP (Model Context Protocol) server that provides access to the Example API, allowing AI assistants to interact with Example data.
+An MCP (Model Context Protocol) server that provides access to the Slack API, allowing AI assistants to interact with Slack workspaces.
 
 ## Features
 
-- List and retrieve items from the Example API
-- Async HTTP client with error handling
-- Typed responses with Pydantic models
+- Send messages and reply to threads
+- List, create, and manage channels
+- Search messages and read channel history
+- Look up user profiles
 
 ## Installation
 
 ### Using mpak (Recommended)
 
 ```bash
-# Configure your API key
-mpak config set @nimblebraininc/example api_key=your_api_key_here
+# Configure your Bot Token
+mpak config set @joecardoso13/slack api_key=xoxb-your-bot-token
 
 # Run the server
-mpak run @nimblebraininc/example
+mpak run @joecardoso13/slack
 ```
 
 ### Manual Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/NimbleBrainInc/mcp-example.git
-cd mcp-example
+git clone https://github.com/JoeCardoso13/mcp-slack.git
+cd mcp-slack
 
 # Install dependencies with uv
 uv sync
 
-# Set your API key
-export EXAMPLE_API_KEY=your_api_key_here
+# Set your Bot Token
+export SLACK_API_KEY=xoxb-your-bot-token
 
 # Run the server
-uv run python -m mcp_example.server
+uv run python -m mcp_slack.server
 ```
 
 ## Configuration
 
-### Getting Your API Key
+### Getting Your Bot Token
 
-1. Go to https://example.com/settings/api
-2. Create a new API key
-3. Copy the key
+1. Go to https://api.slack.com/apps
+2. Create a new app (or select an existing one)
+3. Under "OAuth & Permissions", add the required scopes
+4. Install the app to your workspace
+5. Copy the Bot User OAuth Token (starts with `xoxb-`)
 
 ### Claude Desktop Configuration
 
@@ -52,9 +55,9 @@ Add to your `~/.claude/settings.json`:
 ```json
 {
   "mcpServers": {
-    "example": {
+    "slack": {
       "command": "mpak",
-      "args": ["run", "@nimblebraininc/example"]
+      "args": ["run", "@joecardoso13/slack"]
     }
   }
 }

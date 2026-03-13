@@ -1,1 +1,1 @@
-"""Tests for Example MCP Server."""
+"""Tests for Slack MCP Server."""

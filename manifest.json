@@ -1,28 +1,52 @@
 {
   "manifest_version": "0.4",
-  "name": "@nimblebraininc/example",
+  "name": "@joecardoso13/slack",
   "version": "0.1.0",
-  "description": "MCP server for the Example API",
+  "description": "MCP server for the Slack API",
   "author": {
     "name": "NimbleBrain Inc"
   },
   "user_config": {
     "api_key": {
       "type": "string",
-      "title": "Example API Key",
-      "description": "Your API key from https://example.com/settings/api",
+      "title": "Slack Bot Token",
+      "description": "Your Slack Bot Token (xoxb-...) from https://api.slack.com/apps",
       "sensitive": true,
       "required": true
     }
   },
   "server": {
     "type": "python",
-    "entry_point": "mcp_example.server",
+    "entry_point": "mcp_slack.server",
     "mcp_config": {
       "command": "python",
-      "args": ["-m", "mcp_example.server"],
+      "args": ["-m", "mcp_slack.server"],
       "env": {
-        "EXAMPLE_API_KEY": "${user_config.api_key}"
+        "SLACK_API_KEY": "${user_config.api_key}"
+      }
+    }
+  },
+  "tools": [
+    { "name": "send_message", "description": "Send a message to a Slack channel or DM" },
+    { "name": "reply_to_thread", "description": "Reply to a specific message thread" },
+    { "name": "list_channels", "description": "List channels in the workspace" },
+    { "name": "create_channel", "description": "Create a new public or private channel" },
+    { "name": "set_channel_topic", "description": "Set a channel's topic" },
+    { "name": "get_channel_history", "description": "Read recent messages from a channel" },
+    { "name": "get_thread_replies", "description": "Read all replies in a thread" },
+    { "name": "search_messages", "description": "Search messages across the workspace" },
+    { "name": "get_user_info", "description": "Look up a user's profile details" },
+    { "name": "add_reaction", "description": "Add an emoji reaction to a message" }
+  ],
+  "_meta": {
+    "org.mpaktrust": {
+      "mtf_version": "0.1",
+      "permissions": {
+        "network": "outbound",
+        "filesystem": "none",
+        "subprocess": "none",
+        "environment": "read",
+        "native": "none"
       }
     }
   }

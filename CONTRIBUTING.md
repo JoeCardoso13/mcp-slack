@@ -14,8 +14,8 @@
 
 ```bash
 # Clone the repo
-git clone https://github.com/NimbleBrainInc/mcp-example.git
-cd mcp-example
+git clone https://github.com/JoeCardoso13/mcp-slack.git
+cd mcp-slack
 
 # Install dependencies
 uv sync --dev
@@ -37,9 +37,9 @@ mpak skill install @nimblebraininc/build-mcpb
 
 ### Adding a New Tool
 
-1. **Add response models** to `src/mcp_example/api_models.py`
-2. **Add client methods** to `src/mcp_example/api_client.py`
-3. **Add the tool** to `src/mcp_example/server.py` using `@mcp.tool()`
+1. **Add response models** to `src/mcp_slack/api_models.py`
+2. **Add client methods** to `src/mcp_slack/api_client.py`
+3. **Add the tool** to `src/mcp_slack/server.py` using `@mcp.tool()`
 4. **Add tests** to `tests/`
 5. **Run checks**: `make check`
 

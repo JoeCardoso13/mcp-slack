@@ -6,7 +6,7 @@ Replace with your actual endpoints and assertions.
 """
 
 # import pytest
-# from mcp_example.api_client import ExampleAPIError, ExampleClient
+# from mcp_slack.api_client import SlackAPIError, SlackClient
 
 
 # TODO: Add integration tests for each tool group. Example:
@@ -15,7 +15,7 @@ Replace with your actual endpoints and assertions.
 #     """Test list items endpoint."""
 #
 #     @pytest.mark.asyncio
-#     async def test_list_items(self, client: ExampleClient):
+#     async def test_list_items(self, client: SlackClient):
 #         """Test listing items."""
 #         result = await client.list_items(limit=5)
 #         assert isinstance(result, list)
@@ -24,12 +24,12 @@ Replace with your actual endpoints and assertions.
 #
 # For tier-gated endpoints, add a helper:
 #
-# async def has_premium_access(client: ExampleClient) -> bool:
+# async def has_premium_access(client: SlackClient) -> bool:
 #     """Check if the plan supports premium endpoints."""
 #     try:
 #         await client.premium_method()
 #         return True
-#     except ExampleAPIError as e:
+#     except SlackAPIError as e:
 #         if e.status in (400, 401, 403):
 #             return False
 #         raise
